@@ -28,8 +28,8 @@ public class GetTempProcessor implements Processor {
         msgA = exchange.getIn().getBody(MsgA.class);
         String date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(new Date());
         MsgB msgB = null;
-//        msgB = new MsgB(msgA.getMsg(), date, weatherService.getTemperature(msgA.getCoordinates()));
-        msgB = new MsgB(msgA.getMsg(), date, 28);
+        msgB = new MsgB(msgA.getMsg(), date, weatherService.getTemperature(msgA.getCoordinates()));
+//        msgB = new MsgB(msgA.getMsg(), date, 28);
         exchange.getIn().setBody(mapper.writeValueAsString(msgB));
         System.out.println(exchange.getIn().getBody(String.class));
     }

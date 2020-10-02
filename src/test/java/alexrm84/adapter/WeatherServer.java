@@ -105,7 +105,7 @@ public class WeatherServer {
         return response;
     }
 
-    private org.apache.http.HttpResponse requestToAdapterTest() throws UnsupportedEncodingException {
+    private org.apache.http.HttpResponse requestToAdapterTest() {
         MsgA msgA = new MsgA("Hello", "ru", new Coordinates("54.35", "52.52"));
         StringEntity se = new StringEntity(msgA.toString(), ContentType.APPLICATION_JSON);
         String url = "http://localhost:8190/camel/temp";
